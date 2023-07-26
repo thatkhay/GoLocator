@@ -3,7 +3,8 @@ import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { useState } from 'react'
 import { Form, Button, Card, Alert } from 'react-bootstrap'
 import { auth } from '../firebase'
-
+import { Container } from "react-bootstrap";
+import { Link } from 'react-router-dom';
 const Signup = () => {
 const [username, setUsername] = useState('')
 const [email, setEmail] = useState('')
@@ -26,7 +27,7 @@ const handleSignin = (e) => {
     updateProfile(userCredential.user, {
       displayName: username, // Set the display name to the username entered
     })
-    // .then(() => {
+    // .then(() => { 
     //    console.log('User profile updated successfully.');
     // })
       console.log(userCredential); 
@@ -39,8 +40,10 @@ const handleSignin = (e) => {
 
   return (
 
+    <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: '100vh' }}>
+
     
-    <div>
+    <div className="w-100 " style={{ maxWidth: '400px'}}>
       <Card>
         <Card.Body>
        
@@ -68,9 +71,10 @@ const handleSignin = (e) => {
         </Card.Body>
       </Card>
       <div className='w-100 text-center mt-2'>
-Already have an account? Log in
+Already have an account? <Link to='/signin'>Log in</Link>
       </div>
     </div>
+    </Container>
   )
 }
 

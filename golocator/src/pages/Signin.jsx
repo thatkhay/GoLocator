@@ -3,7 +3,8 @@ import { signInWithEmailAndPassword } from 'firebase/auth'
 import { useState } from 'react'
 import { Form, Button, Card } from 'react-bootstrap'
 import { auth } from '../firebase'
-
+import { Container } from "react-bootstrap";
+import { Link } from 'react-router-dom';
 const Signin = () => {
 
 const [email, setEmail] = useState('')
@@ -21,7 +22,10 @@ const handleSignin = (e) => {
 }
 
   return (
-    <div>
+    <Container  className="d-flex align-items-center justify-content-center" style={{ minHeight: '100vh' }}>
+
+   
+    <div className="w-100 " style={{ maxWidth: '400px'}}>
       <Card>
         <Card.Body>
           <h2 className='text-center mb-4'>Sign in</h2>
@@ -39,9 +43,10 @@ const handleSignin = (e) => {
         </Card.Body>
       </Card>
       <div className='w-100 text-center mt-2'>
-Already have an account? Log in
+Don't have an account?  <Link to='/signup'>Sign up</Link>
       </div>
     </div>
+    </Container>
   )
 }
 

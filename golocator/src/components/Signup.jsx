@@ -1,7 +1,7 @@
 
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { useState } from 'react'
-import { Form, Button, Card } from 'react-bootstrap'
+import { Form, Button, Card, Alert } from 'react-bootstrap'
 import { auth } from '../firebase'
 
 const Signup = () => {
@@ -9,23 +9,32 @@ const [username, setUsername] = useState('')
 const [email, setEmail] = useState('')
 const [password, setPassword] = useState('')
 const [confirmpass, setConfirmpass] = useState('')
+const [error, setError] = useState('')
+const [loading, setLoading] = useState(false)
 
 
 const handleSignin = (e) => {
   e.preventDefault()
   // console.log('signin baby');
+  if (password !== confirmpass){
+    return setError(`password don't match`)
+  }
   createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
+    setError(``)
+    setLoading(true)
     updateProfile(userCredential.user, {
       displayName: username, // Set the display name to the username entered
     })
-    .then(() => {
-      console.log('User profile updated successfully.');
-    })
+    // .then(() => {
+    //    console.log('User profile updated successfully.');
+    // })
       console.log(userCredential); 
   }).catch((error) => {
       console.log(error);
+      setError('Account creation failed, try again.')
   })
+  setLoading(false)
 }
 
   return (
@@ -34,6 +43,8 @@ const handleSignin = (e) => {
     <div>
       <Card>
         <Card.Body>
+       
+      {error && <Alert variant='danger' style={{ display: 'flex', alignItems: 'center' , justifyContent: 'center' }}>{error}</Alert>}
           <h2 className='text-center mb-4'>Sign up</h2>
           <Form onSubmit={handleSignin}>
             <Form.Group id='name'>
@@ -52,7 +63,7 @@ const handleSignin = (e) => {
               <Form.Label>Confirm password</Form.Label>
               <Form.Control className='mb-4' type='password' value={confirmpass} onChange={(e) => setConfirmpass(e.target.value)} required/>
             </Form.Group>
-            <Button className='w-100 mt-4' type='submit'>Sign Up</Button>
+            <Button disabled={loading} className='w-100 mt-4' type='submit'>Sign Up</Button>
           </Form>
         </Card.Body>
       </Card>

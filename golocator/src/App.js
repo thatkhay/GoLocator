@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import WelcomePage from "./pages/WelcomePage";
 import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";
+import NotFound from "./pages/NotFound";
 
 function App() {
  
@@ -13,6 +14,7 @@ function App() {
       <Route exact path="/" element={<WelcomePage/>} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/signin" element={<Signin/>} />
+      <Route path="/*" element={<NotFound/>} />
     </Routes>
   </Router>
    

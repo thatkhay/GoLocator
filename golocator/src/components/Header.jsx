@@ -13,7 +13,7 @@ const Header = () => {
   return (
     <nav className="navbar navbar-expand-lg  w-100 p-3" style={{ backgroundColor: 'blue' }}>
 
-      <Link to="/" className="navbar-brand">
+      <Link to="/" className="navbar-brand" >
       GO LOCATOR
       </Link>
       <button
@@ -26,7 +26,7 @@ const Header = () => {
       >
         <span className="navbar-toggler-icon" ></span>
       </button>
-      <div className={`collapse navbar-collapse ${isCollapsed ? '' : 'show'}`} id="navbarNav" style={{  marginLeft: isCollapsed ? '22rem' : '-5rem'}}>
+      <div className={`collapse navbar-collapse ${isCollapsed ? '' : 'show'}`} id="navbarNav" style={{  marginLeft: isCollapsed ? '49rem' : '-5rem'}}>
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
             <Link to="/" className="nav-link " style={{  marginLeft: '5rem'}}>

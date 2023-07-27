@@ -5,6 +5,7 @@ import { Form, Button, Card } from 'react-bootstrap'
 import { auth } from '../firebase'
 import { Container } from "react-bootstrap";
 import { Link, useNavigate} from 'react-router-dom';
+
 const Signin = () => {
 
 const [email, setEmail] = useState('')
@@ -24,6 +25,8 @@ const handleSignin = (e) => {
 }
 
   return (
+    <div >
+
     <Container  className="d-flex align-items-center justify-content-center" style={{ minHeight: '100vh' }}>
 
    
@@ -49,6 +52,7 @@ Don't have an account?  <Link to='/signup'>Sign up</Link>
       </div>
     </div>
     </Container>
+    </div>
   )
 }
 

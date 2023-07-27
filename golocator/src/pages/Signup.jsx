@@ -53,7 +53,7 @@ const handleSignin = (e) => {
         <Card.Body>
        
       {error && <Alert variant='danger' style={{ display: 'flex', alignItems: 'center' , justifyContent: 'center' }}>{error}</Alert>}
-          <h2 className='text-center mb-4'>Sign up</h2>
+          <h2 className='text-center mb-4' style={{ fontWeight: '700' }}>Sign up</h2>
           <Form onSubmit={handleSignin}>
             <Form.Group id='name'>
               <Form.Label>Username</Form.Label>

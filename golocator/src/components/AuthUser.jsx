@@ -25,21 +25,22 @@ const AuthUser = () => {
     auth.signOut();
   };
   if (loading) {
-    return <h1>Loading...</h1>; 
+    return <h1>Loading......</h1>; 
   }
 
   return (
     <div>
       {user ? (
-        <>
+        <div className="d-flex align-items-center justify-content-center" style={{ flexDirection: 'column' }}>
           <h1>Welcome, {user.displayName}!</h1>
-          <button onClick={handleLogout}>Logout</button>
-        </>
+          
+          <button onClick={handleLogout} style={{ border: '0', backgroundColor: 'gray', borderRadius: '.4rem', height: '2rem' }}>Logout</button>
+        </div>
       ) : ( 
-        <>
+        <div className="d-flex align-items-center justify-content-center" style={{ flexDirection: 'column' }}>
         <Signin />
-        <h1>Please login to see the welcome message</h1>
-        </>
+        <h1>You are not logged in</h1>
+        </div>
       
        
       )}

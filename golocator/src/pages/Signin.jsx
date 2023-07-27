@@ -33,7 +33,7 @@ const handleSignin = (e) => {
     <div className="w-100 " style={{ maxWidth: '400px'}}>
       <Card>
         <Card.Body>
-          <h2 className='text-center mb-4'>Sign in</h2>
+          <h2 className='text-center mb-4' style={{ fontWeight: '700' }}>Sign in</h2>
           <Form onSubmit={handleSignin}> 
             <Form.Group id='email'>
               <Form.Label>Email</Form.Label>

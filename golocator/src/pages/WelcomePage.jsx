@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import AuthUser from '../components/AuthUser';
 
@@ -14,10 +13,9 @@ const WelcomePage = () => {
    <div className="w-100 " >
     <Header />
     <AuthUser />
-WelcomePage
-Don't have an account?  <Link to='/signup'>Sign up</Link>
+
    </div>
-   Already have an account? <Link to='/signin'>Log in</Link>
+   
    </div>
  
   

@@ -13,7 +13,7 @@ const Header = () => {
   return (
     <nav className="navbar navbar-expand-lg  w-100 p-3" style={{ backgroundColor: 'blue' }}>
 
-      <Link to="/" className="navbar-brand" >
+      <Link to="/" className="navbar-brand" style={{ fontWeight: '800', color: 'white', fontStyle:'italic' }}>
       GO LOCATOR
       </Link>
       <button

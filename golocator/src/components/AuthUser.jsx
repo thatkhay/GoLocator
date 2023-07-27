@@ -4,10 +4,11 @@ import Signin from "../pages/Signin";
 
 const AuthUser = () => {
   const [user, setUser] = useState(null);
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     // Add an observer to check if the user is logged in
     const unsubscribe = auth.onAuthStateChanged((user) => {
+        setLoading(false);
       if (user) {
         setUser(user);
       } else {
@@ -23,6 +24,9 @@ const AuthUser = () => {
     // Handle the logout event
     auth.signOut();
   };
+  if (loading) {
+    return <h1>Loading...</h1>; 
+  }
 
   return (
     <div>

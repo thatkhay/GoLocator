@@ -8,11 +8,10 @@ import Header from '../components/Header';
 
 const WelcomePage = () => {
   return (
-    <div>
-        <>
+   
   
-   <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: '100vh' }}>
-   <div className="w-100 " style={{ maxWidth: '400px'}}>
+   <Container className="d-flex " style={{ minHeight: '100vh', flexDirection: 'column' }}>
+   <div className="w-100 " >
     <Header />
 WelcomePage
 Don't have an account?  <Link to='/signup'>Sign up</Link>
@@ -20,12 +19,11 @@ Don't have an account?  <Link to='/signup'>Sign up</Link>
    Already have an account? <Link to='/signin'>Log in</Link>
    </Container>
  
-   </>
-    
+  
     
   );
-    </div>
-  )
+    
+  
 }
 
 export default WelcomePage

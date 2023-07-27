@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Form, Button, Card, Alert } from 'react-bootstrap'
 import { auth } from '../firebase'
 import { Container } from "react-bootstrap";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 const Signup = () => {
 const [username, setUsername] = useState('')
 const [email, setEmail] = useState('')
@@ -12,7 +12,7 @@ const [password, setPassword] = useState('')
 const [confirmpass, setConfirmpass] = useState('')
 const [error, setError] = useState('')
 const [loading, setLoading] = useState(false)
-
+const navigate = useNavigate();
 
 const handleSignin = (e) => {
   e.preventDefault()
@@ -22,6 +22,7 @@ const handleSignin = (e) => {
   }
   createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
+    navigate("/signin");
     setError(``)
     setLoading(true)
     updateProfile(userCredential.user, {

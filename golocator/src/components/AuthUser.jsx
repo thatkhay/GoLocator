@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { auth } from "../firebase";
-import Signin from "../pages/Signin";
-
+import Signin from "./Signin";
+import IpTracker from "./IpTracker";
+import { Button } from "react-bootstrap";
 const AuthUser = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -25,7 +26,7 @@ const AuthUser = () => {
     auth.signOut();
   };
   if (loading) {
-    return <h1>Loading......</h1>; 
+    return <h1>Loading.....</h1>; 
   }
 
   return (
@@ -34,15 +35,16 @@ const AuthUser = () => {
         <div className="d-flex align-items-center justify-content-center" style={{ flexDirection: 'column' }}>
           <h1>Welcome, {user.displayName}!</h1>
           
-          <button onClick={handleLogout} style={{ border: '0', backgroundColor: 'gray', borderRadius: '.4rem', height: '2rem' }}>Logout</button>
+          <Button onClick={handleLogout} style={{ border: '0', backgroundColor: 'black', borderRadius: '.4rem', height: '2rem', color: 'white' }}>Logout</Button>
+          <IpTracker/>
         </div>
+        
       ) : ( 
         <div className="d-flex align-items-center justify-content-center" style={{ flexDirection: 'column' }}>
         <Signin />
         <h1>You are not logged in</h1>
         </div>
       
-       
       )}
     </div>
   );

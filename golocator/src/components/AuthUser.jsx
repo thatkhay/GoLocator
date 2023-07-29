@@ -30,13 +30,12 @@ const AuthUser = () => {
   }
 
   return (
-    <div>
+    <div style={{marginTop: '2rem'}}>
       {user ? (
         <div className="d-flex align-items-center justify-content-center" style={{ flexDirection: 'column' }}>
-          <h1>Welcome, {user.displayName}!</h1>
-          
-          <Button onClick={handleLogout} style={{ border: '0', backgroundColor: 'black', borderRadius: '.4rem', height: '2rem', color: 'white' }}>Logout</Button>
+          <p style={{ marginTop: '1rem', fontWeight: '700' }}> Hello {user.displayName} this is your current location</p>
           <IpTracker/>
+          <Button onClick={handleLogout} style={{ border: '0', backgroundColor: 'black', borderRadius: '.4rem', height: '2rem', color: 'white', marginTop: '1rem', marginBottom: '2rem' }}>Logout</Button>
         </div>
         
       ) : ( 

@@ -2,13 +2,14 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useState } from 'react';
 import { Form, Button, Card } from 'react-bootstrap';
 import { auth } from '../firebase';
-import { Container } from "react-bootstrap";
+import { Container, Alert } from "react-bootstrap";
 import { Link, useNavigate } from 'react-router-dom';
 
 const Signin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false); 
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleSignin = (e) => {
@@ -21,7 +22,8 @@ const Signin = () => {
         console.log(userCredential);
       })
       .catch((error) => {
-        setLoading(false); 
+        setLoading(false);
+        setError(error.message) 
         console.log(error);
       });
   };
@@ -32,6 +34,8 @@ const Signin = () => {
         <div className="w-100 " style={{ maxWidth: '400px' }}>
           <Card>
             <Card.Body>
+            {error && <Alert variant='danger' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{error}</Alert>}
+    
               <h2 className='text-center mb-4' style={{ fontWeight: '700' }}>Sign in</h2>
               <Form onSubmit={handleSignin}>
                 <Form.Group id='email'>

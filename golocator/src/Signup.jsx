@@ -39,6 +39,7 @@ const Signup = () => {
         setLoading(false); 
         console.log(error);
         setError('Account creation failed, try again.');
+        setError(error.message)
       });
   };
 
@@ -54,7 +55,7 @@ const Signup = () => {
               <Form onSubmit={handleSignup}>
                 <Form.Group id='name'>
                   <Form.Label>Username</Form.Label>
-                  <Form.Control className='mb-4' type='text' value={username} onChange={(e) => setUsername(e.target.value)} required />
+                  <Form.Control className='mb-4' type='text' value={username} onChange={(e) => setUsername(e.target.value)} required  style={{ textTransform: 'capitalize' }}/>
                 </Form.Group>
                 <Form.Group id='email'>
                   <Form.Label>Email</Form.Label>

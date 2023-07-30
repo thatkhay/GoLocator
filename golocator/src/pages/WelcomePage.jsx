@@ -9,7 +9,7 @@ const WelcomePage = () => {
   return (
    
   
-   <div className="d-flex " style={{ minHeight: '100vh', flexDirection: 'column' }}>
+   <div className="d-flex " style={{ minHeight: '100vh', flexDirection: 'column', backgroundColor: 'rgb(176, 203, 253)' }}>
    <div className="w-100 " >
     <Header />
     <AuthUser />

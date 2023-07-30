@@ -8,7 +8,7 @@ import NotFound from "./pages/NotFound";
 function App() {
  
   return (
-
+<div style={{backgroundColor: 'rgb(176, 203, 253)' }}>
     <Router>
     <Routes>
       <Route exact path="/" element={<WelcomePage/>} />
@@ -17,7 +17,7 @@ function App() {
       <Route path="/*" element={<NotFound/>} />
     </Routes>
   </Router>
-   
+  </div>
     
     
   );

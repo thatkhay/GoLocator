@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import 'leaflet/dist/leaflet.css';
 import { Card, Form, Button, Container } from 'react-bootstrap';
 import arrow from '../images/icon-arrow.svg';
@@ -10,6 +10,7 @@ const IpTracker = () => {
   const [address, setAddress] = useState(null);
   const [ipAddress, setIpAddress] = useState('');
 
+  const mapRef = useRef();
   useEffect(() => {
     try {
       const getInitialData = async () => {
@@ -30,6 +31,10 @@ const IpTracker = () => {
       const res = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${process.env.REACT_APP_API_KEY}&ipAddress=${ipAddress}`);
       const data = await res.json();
       setAddress(data);
+       if (data.location && data.location.lat && data.location.lng) {
+        
+        mapRef.current.flyTo([data.location.lat, data.location.lng], 13);
+      }
     } catch (error) {
       console.trace(error);
     }
@@ -37,8 +42,8 @@ const IpTracker = () => {
 
   return (
     <Container className="d-flex container-fluid align-items-center justify-content-center">
-      <Card className="mt-4 w-100" style={{ maxWidth: '800px', minHeight: '90vh' }}>
-        <div className="w-100" style={{ maxWidth: '800px' }}>
+      <Card className="mt-4 w-100" style={{ maxWidth: '1200px', minHeight: '90vh' }}>
+        <div className="w-100" style={{ maxWidth: '1200px' }}>
           <img className="w-100 position-absolute" src={background} alt="" style={{ backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', height: '18rem' }} />
         </div>
         <Card.Body className="position-relative">
@@ -90,7 +95,7 @@ const IpTracker = () => {
             </>
           )}
         {address?.location?.lat && address?.location?.lng && (
-  <MapContainer className='mt-3' center={[address.location.lat, address.location.lng]} zoom={13} scrollWheelZoom={true} style={{ maxWidth: '800px', height: '60vh' }}>
+  <MapContainer ref={mapRef} className='mt-3' center={[address.location.lat, address.location.lng]} zoom={13} scrollWheelZoom={true} style={{ maxWidth: '1200px', height: '60vh' }}>
     <TileLayer
       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

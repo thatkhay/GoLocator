@@ -1,10 +1,10 @@
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { useState } from 'react';
 import { Form, Button, Card, Alert } from 'react-bootstrap';
-import { auth } from './firebase';
+import { auth } from '../firebase';
 import { Container } from "react-bootstrap";
 import { Link, useNavigate } from 'react-router-dom';
-import Header from './components/Header';
+import Header from '../components/Header';
 
 const Signup = () => {
   const [username, setUsername] = useState('');

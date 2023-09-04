@@ -1,9 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import WelcomePage from "./pages/WelcomePage";
-import Signup from "./Signup";
-import Signin from "./components/Signin";
+import Signup from "./pages/Signup";
+import Signin from "./pages/Signin";
 import NotFound from "./pages/NotFound";
+import Home from "./pages/Home";
 
 function App() {
  
@@ -11,7 +12,8 @@ function App() {
 <div style={{backgroundColor: 'rgb(176, 203, 253)' }}>
     <Router>
     <Routes>
-      <Route exact path="/" element={<WelcomePage/>} />
+      <Route exact path="/" element={<Home/>} />
+      <Route exact path="/user-info" element={<WelcomePage/>} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/signin" element={<Signin/>} />
       <Route path="/*" element={<NotFound/>} />

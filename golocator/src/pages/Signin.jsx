@@ -4,6 +4,7 @@ import { Form, Button, Card } from 'react-bootstrap';
 import { auth } from '../firebase';
 import { Container, Alert } from "react-bootstrap";
 import { Link, useNavigate } from 'react-router-dom';
+import Header from '../components/Header';
 
 const Signin = () => {
   const [email, setEmail] = useState('');
@@ -18,18 +19,19 @@ const Signin = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         setLoading(false); 
-        navigate("/");
-        console.log(userCredential);
+        navigate("/user-info");
+        // console.log(userCredential);
       })
       .catch((error) => {
         setLoading(false);
         setError(error.message) 
-        console.log(error);
+        // console.log(error);
       });
   };
 
   return (
     <div>
+      <Header />
       <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: '100vh' }}>
         <div className="w-100 " style={{ maxWidth: '400px' }}>
           <Card>

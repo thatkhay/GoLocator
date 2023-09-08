@@ -39,7 +39,7 @@ const Signup = () => {
         setLoading(false); 
         console.log(error);
         setError('Account creation failed, try again.');
-        setError(error.message)
+       
       });
   };
 

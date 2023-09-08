@@ -24,7 +24,7 @@ const Signin = () => {
       })
       .catch((error) => {
         setLoading(false);
-        setError(error.message) 
+        setError("Invalid Credentials") 
         // console.log(error);
       });
   };

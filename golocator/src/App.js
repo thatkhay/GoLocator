@@ -5,6 +5,7 @@ import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";
 import NotFound from "./pages/NotFound";
 import Home from "./pages/Home";
+import IpTracker from "./pages/IpTracker";
 
 function App() {
  
@@ -16,6 +17,7 @@ function App() {
       <Route exact path="/user-info" element={<WelcomePage/>} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/signin" element={<Signin/>} />
+      <Route path="/ip-tracker" element={<IpTracker/>}/>
       <Route path="/*" element={<NotFound/>} />
     </Routes>
   </Router>

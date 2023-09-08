@@ -41,7 +41,8 @@ const IpTracker = () => {
   };
 
   return (
-    <Container className="d-flex container-fluid align-items-center justify-content-center">
+    <Container className="d-flex container-fluid align-items-center justify-content-center" style={{flexDirection: 'column'}}>
+      <h2 style={{margin: '1rem 0'}}>Your IP  Address</h2>
       <Card className="mt-4 w-100" style={{ maxWidth: '1200px', minHeight: '90vh' }}>
         <div className="w-100" style={{ maxWidth: '1200px' }}>
           <img className="w-100 position-absolute" src={background} alt="" style={{ backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', height: '18rem' }} />

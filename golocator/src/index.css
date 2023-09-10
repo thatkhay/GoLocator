@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,200;0,700;1,400;1,700;1,800;1,900&display=swap');
 
+
 body {
   margin: 0;
   font-family: 'Kanit', sans-serif;
@@ -24,3 +25,19 @@ code {
   border-bottom: 2px solid white;
 }
 
+@media (max-width: 550px) {
+ .welcomeHeader{
+  font-size: .9rem;
+  padding: .5rem;
+ }
+.imgPosition{
+  margin-left: 3rem;
+}
+.img{
+  width: 80%;
+  height: auto;
+}
+.imgg{
+ margin-left: 40%;
+}
+}

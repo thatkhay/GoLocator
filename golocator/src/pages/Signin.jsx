@@ -2,15 +2,16 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useState } from 'react';
 import { Form, Button, Card } from 'react-bootstrap';
 import { auth } from '../firebase';
-import { Container, Alert } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { Link, useNavigate } from 'react-router-dom';
-import Header from '../components/Header';
+
+import {toast} from 'react-toastify'
 
 const Signin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false); 
-  const [error, setError] = useState('');
+  // const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleSignin = (e) => {
@@ -21,22 +22,23 @@ const Signin = () => {
         setLoading(false); 
         navigate("/user-info");
         // console.log(userCredential);
+        toast.success("Welcom Back")
       })
       .catch((error) => {
         setLoading(false);
-        setError("Invalid Credentials") 
-        // console.log(error);
+        toast.error("Invalid Credentials") 
+        console.log(error);
       });
   };
 
   return (
     <div>
-      <Header />
+     
       <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: '100vh' }}>
         <div className="w-100 " style={{ maxWidth: '400px' }}>
           <Card>
             <Card.Body>
-            {error && <Alert variant='danger' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{error}</Alert>}
+            {/* {error && <Alert variant='danger' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{error}</Alert>} */}
     
               <h2 className='text-center mb-4' style={{ fontWeight: '700' }}>Sign in</h2>
               <Form onSubmit={handleSignin}>

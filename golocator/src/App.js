@@ -6,7 +6,9 @@ import Signin from "./pages/Signin";
 import NotFound from "./pages/NotFound";
 import Home from "./pages/Home";
 import IpTracker from "./pages/IpTracker";
-
+import {ToastContainer} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import './App.css';
 function App() {
  
   return (
@@ -21,6 +23,7 @@ function App() {
       <Route path="/*" element={<NotFound/>} />
     </Routes>
   </Router>
+  <ToastContainer/>
   </div>
     
     

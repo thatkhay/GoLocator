@@ -5,6 +5,9 @@ import { auth } from '../firebase';
 import { Container } from "react-bootstrap";
 import { Link, useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
+import { toast } from 'react-toastify';
+
+
 
 const Signup = () => {
   const [username, setUsername] = useState('');
@@ -29,16 +32,17 @@ const Signup = () => {
           displayName: username, 
         }).then(() => {
           console.log('User profile updated successfully.');
+          toast.success('User profile updated successfully.');
         });
 
         setLoading(false); 
         navigate("/signin");
-        console.log(userCredential);
+        // console.log(userCredential);
       })
       .catch((error) => {
         setLoading(false); 
         console.log(error);
-        setError('Account creation failed, try again.');
+        toast.error('Account creation failed, try again.');
        
       });
   };

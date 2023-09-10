@@ -31,7 +31,7 @@ const AuthUser = () => {
     <div style={{marginTop: '2rem'}}>
       {user ? (
         <div className="d-flex align-items-center justify-content-center" style={{ flexDirection: 'column' }}>
-          <p style={{ marginTop: '1rem', fontWeight: '700' }}> Hello {user.displayName} this is your current location</p>
+          <p style={{ marginTop: '1rem', fontWeight: '700' }}> Hello {user.displayName} </p>
          
           <Button onClick={handleLogout} style={{ border: '0', backgroundColor: 'black', borderRadius: '.4rem', height: '2rem', color: 'white', marginTop: '1rem', marginBottom: '2rem' }}>Logout</Button>
         </div>

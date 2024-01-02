@@ -1,5 +1,5 @@
 # GoLocator
 tracker app.
 
-link 
+link
 https://golocator.netlify.app/
